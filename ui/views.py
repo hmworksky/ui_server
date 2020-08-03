@@ -47,6 +47,7 @@ class AuthView(APIView):
         except Exception as e:
             ret['code'] = 1002
             ret['msg'] = '请求异常'
+        print(ret)
         return JsonResponse(ret)
 
 
