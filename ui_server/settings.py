@@ -58,9 +58,9 @@ MIDDLEWARE = [
 # 跨域增加忽略
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    '*'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     '*'
+# )
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',
@@ -113,9 +113,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "ui_server",
-        "HOST": "localhost",
+        "HOST": "47.101.53.165",
         "USER": "root",
-        "PASSWORD": "test1324",
+        "PASSWORD": "Test~1324",
         "PORT": 3306,
         "OPTIONS": {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
