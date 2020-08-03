@@ -1,13 +1,14 @@
 from django.db import models
-from ui.models import User
+from ui.models import UserLogin
 
 
 class UserDevice(models.Model):
 
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserLogin, on_delete=models.CASCADE)
     device_name = models.CharField(max_length=50, blank=False, null=False)
 
     class Meta:
+        managed = False
         db_table = 'user_device'
         verbose_name = verbose_name_plural = '设备管理'
 
@@ -18,13 +19,14 @@ class EnvManage(models.Model):
     port = models.IntegerField(default=9999, blank=True, null=True)
 
     class Meta:
+        managed = False
         db_table = 'env_manage'
         verbose_name = verbose_name_plural = '环境管理'
 
 
 class GenerateConf(models.Model):
 
-    send_type = models.IntegerField(max_length=20, default=0, null=True, blank=True, help_text="发送类型")
+    send_type = models.IntegerField(default=0, null=True, blank=True, help_text="发送类型")
     send_data_format = models.CharField(max_length=500, blank=False, help_text="发送格式")
     parameter = models.CharField(max_length=500, blank=False, null=True, help_text="发送参数")
     format_string = models.CharField(max_length=20, default="%s", null=True, blank=True, help_text="需要参数化的字符串")

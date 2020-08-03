@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from ui.urls import ui_router
+from ui.urls import urlpatterns as ui_url
 from generate_data.urls import urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url("ui/", include(ui_router.urls)),
+    url("ui/", include(ui_router.urls + ui_url)),
     url("generate/", include(urlpatterns))
 ]

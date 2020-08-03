@@ -38,7 +38,7 @@ class AuthView(APIView):
 
             usr = request.data.get('username')
             pas = request.data.get('password')
-            obj = um.User.objects.filter(username=usr, password=pas).first()
+            obj = um.UserLogin.objects.filter(username=usr, password=pas).first()
             if not obj:
                 ret['code'] = '1001'
                 ret['msg'] = '用户名或者密码错误'

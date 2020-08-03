@@ -3,13 +3,13 @@ from django.db import models
 # Create your models here.
 
 
-class User(models.Model):
+class UserLogin(models.Model):
     username = models.CharField(max_length=32,unique=True)
     password = models.CharField(max_length=32)
 
     class Meta:
         managed = False
-        db_table = 'user'
+        db_table = 'user_login'
         verbose_name = verbose_name_plural = '用户信息表'
 
 
