@@ -120,9 +120,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "ui_server",
-        "HOST": "47.101.53.165",
+        "HOST": "192.168.52.203",
         "USER": "root",
-        "PASSWORD": "Test~1324",
+        "PASSWORD": "test1324",
         "PORT": 3306,
         "OPTIONS": {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -154,15 +154,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'zh-hans' #admin的语言为中文
+
+TIME_ZONE = 'Asia/Shanghai' #采用东八区时间
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False #是否采用UTC时间
+
 DEFAULT_CHARSET = "UTF-8"
 
 # Static files (CSS, JavaScript, Images)

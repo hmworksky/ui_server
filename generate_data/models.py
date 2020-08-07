@@ -37,18 +37,18 @@ class GenerateConf(models.Model):
 
 
 class GenerateDataLog(models.Model):
-    STATUS = (
-        (0, "success"),
-        (1, "info"),
-        (2, "error")
-    )
-
-    device_id = models.ForeignKey(UserDevice, on_delete=models.CASCADE, help_text="设备号")
-    env_id = models.ForeignKey(EnvManage, on_delete=models.CASCADE, help_text="环境")
-    send_type = models.CharField(max_length=32, help_text="发送类型")
-    message = models.CharField(max_length=500, blank=False, null=False, help_text="发送的命令")
-    status = models.IntegerField(choices=STATUS, help_text="以什么状态打印日志")
-    memo = models.CharField(max_length=500, help_text="描述信息，错误信息等文案,前端展示文案")
+    request_id = models.CharField(max_length=30, blank=False, null=False, help_text="请求ID")
+    device = models.CharField(max_length=30, blank=False, null=False, help_text="设备号")
+    env = models.CharField(max_length=30, null=True, default='test', help_text="环境")
+    send_type = models.CharField(max_length=30, blank=False, null=False, default='heart', help_text="发送类型")
+    message = models.CharField(max_length=200, blank=True, null=True, default='', help_text="发送的命令")
+    status = models.IntegerField(default=0, help_text="状态，0：初始状态，1：已连接服务器，2：认证完成，3：发送命令完成")
+    interval_time = models.IntegerField(default=10, help_text="发送间隔")
+    send_count = models.IntegerField(default=1, help_text="发送总数")
+    current_send_num = models.IntegerField(default=0, help_text="当前已发送数量")
+    memo = models.CharField(max_length=2000, help_text="描述信息，错误信息等文案,前端展示文案")
+    create_time = models.DateTimeField(auto_now_add=True, blank=True)
+    update_time = models.DateTimeField(auto_now=True, blank=True)
 
     class Meta:
         db_table = 'generate_data_log'

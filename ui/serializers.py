@@ -14,7 +14,7 @@ class PageSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class ElementSerializer(ModelSerializer):
+class AppElementSerializer(ModelSerializer):
     class Meta:
-        model = um.Element
+        model = um.AppElement
         fields = "__all__"

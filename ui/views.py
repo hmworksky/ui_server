@@ -55,7 +55,7 @@ class AppViewSet(BaseViewSet):
     queryset = um.App.objects.all()
     serializer_class = us.AppSerializer
     filter_class = uf.AppFilter
-    search_fields = ("name", "package_name")
+    search_fields = ("app_name", "package_name")
 
 
 class PageViewSet(BaseViewSet):
@@ -65,9 +65,9 @@ class PageViewSet(BaseViewSet):
     search_fields = ("app_name", "page_name")
 
 
-class ElementViewSet(BaseViewSet):
-    queryset = um.Element.objects.all()
-    serializer_class = us.ElementSerializer
-    filter_class = uf.ElementFilter
+class AppElementViewSet(BaseViewSet):
+    queryset = um.AppElement.objects.all()
+    serializer_class = us.AppElementSerializer
+    filter_class = uf.AppElementFilter
     search_fields = ("name", "find_type", "app_name", "page_name")
 
